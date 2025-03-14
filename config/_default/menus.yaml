@@ -1,34 +1,22 @@
 # Navigation Links
-#   The weight parameter defines the order that the links will appear in.
+# The weight parameter defines the order that the links will appear in.
 
 main:
-  - name: Home
+  - name: "主页"          # 主页面，通常指网站首页
     url: /
     weight: 10
-  - name: Documentation
-    url: docs/
+  - name: "研究团队"      # 介绍团队成员、团队组织架构、团队文化等
+    url: "research-team/"  # 请确保在 content/ 下创建对应的页面，例如 research-team/_index.md
     weight: 20
-  - name: Blog
-    url: blog/
+  - name: "学术论文"      # 展示团队发表的学术论文列表
+    url: "publications/"   # 请在 content/ 中建立 publications 页面
     weight: 30
-  - name: Showcase
-    url: showcase/
+  - name: "研究简介"      # 展示团队的研究方向和研究成果概述
+    url: "research-introduction/"   # 对应的页面内容需在 content/ 下创建 introduction/_index.md
     weight: 40
-  - name: Community
-    url: community/
+  - name: "科研项目"      # 展示团队正在进行或已完成的科研项目详情
+    url: "projects/"       # 请确保创建 projects 页面
     weight: 50
-
-sidebar:
-  - identifier: more
-    name: Still need help?
-    params:
-      type: separator
-    weight: 1
-  - identifier: community
-    name: "Community"
-    pageRef: "/community"
-    weight: 2
-  - identifier: hugoDocs
-    name: "Hugo Docs ↗"
-    url: "https://docs.hugoblox.com"
-    weight: 3
+  - name: "招生指南"      # 提供招生信息、申请流程、导师介绍等招生相关内容
+    url: "admissions/"     # 对应页面需在 content/ 下建立 admissions/_index.md
+    weight: 60

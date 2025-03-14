@@ -1,10 +1,20 @@
 # Configuration of Hugo
-# Guide: https://docs.hugoblox.com/tutorial/
-# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+# 以下配置为多语言支持示例。启用中英文版，请确保主题支持语言切换的实现（例如全局语言切换按钮）。
+title: "华北电力大学重力储能团队"  # 网站主标题，中文页面显示团队名称
+baseURL: 'https://example.com/'    # 请修改为实际部署时的网址
 
-title: "Hugo Docs" # Website name
-baseURL: 'https://example.com/' # Website URL
+# 多语言支持配置（示例，可根据主题要求调整）
+languages:
+  zh:
+    languageName: "中文"
+    weight: 1
+    title: "华北电力大学重力储能团队"
+    description: "致力于重力储能系统及其应用研究，专注于大规模能量存储方向。"  # 根据实际情况修改描述
+  en:
+    languageName: "English"
+    weight: 2
+    title: "Gravity Energy Storage of North China Electrical Power University"
+    description: "Research on gravity energy storage systems and applications for large-scale energy storage."
 
 ############################
 ## PAGE OPTIONS

@@ -1,0 +1,42 @@
+name: Import Publications
+
+# 当 publications.bib 文件发生变化时触发此工作流
+on:
+  push:
+    paths:
+      - "publications.bib"
+
+jobs:
+  import_publications:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 检出仓库代码
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. 设置 Python 环境
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # 3. 安装依赖（本示例中使用 bibtexparser 库来处理 BibTeX 文件）
+      - name: Install dependencies
+        run: |
+          pip install bibtexparser
+
+      # 4. 运行导入脚本，将 publications.bib 文件中的内容转换为网站页面所需的数据文件
+      - name: Run publications importer
+        run: |
+          python .github/workflows/import_publications.py
+
+      # 5. 配置 Git 并提交更新
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          # 如果没有更改，git commit 会失败，这里用 || echo 语句避免中断流程
+          git commit -m "Auto import publications from publications.bib" || echo "No changes to commit"
+          git push
